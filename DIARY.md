@@ -14,3 +14,6 @@ Today I created the Git repository for the PoC code to be stored, alongside this
 
 Focusing on the project itself I collected some links as I researched and chatted with an LLM to have a grasp of what to do, understand better the problem to be solved and have a kickstart.
 
+#### ***Day 2 - 12/24/2025***
+
+No entries for today
