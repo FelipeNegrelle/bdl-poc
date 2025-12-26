@@ -4,7 +4,7 @@ Hey! this document will account the daily entries for the development of the PoC
 
 *Task:* Implement a mempool.space and streaming API client
 
-*Description:* Implement a mempool.space and streaming API client 	Implement a mempool.space and streaming API client by building a small library that talks to both the mempool.space HTTP API and its streaming interface, exposing a unified, ergonomic client for applications that need real time mempool and fee data. The PoC should support core endpoints such as fee estimates, mempool transactions, blocks and addresses, and add a streaming layer that can subscribe to new transactions and blocks as they arrive, automatically handling reconnections and backoff. The goal is to provide a reusable client that makes it easy for wallets, nodes and monitoring tools to consume mempool.space data in a push based way instead of relying only on periodic polling.
+*Description:* Implement a mempool.space and streaming API client Implement a mempool.space and streaming API client by building a small library that talks to both the mempool.space HTTP API and its streaming interface, exposing a unified, ergonomic client for applications that need real time mempool and fee data. The PoC should support core endpoints such as fee estimates, mempool transactions, blocks and addresses, and add a streaming layer that can subscribe to new transactions and blocks as they arrive, automatically handling reconnections and backoff. The goal is to provide a reusable client that makes it easy for wallets, nodes and monitoring tools to consume mempool.space data in a push based way instead of relying only on periodic polling.
 
 *Author:* Felipe Ramos (PGP: BE7711B63B2F2DCF)
 
