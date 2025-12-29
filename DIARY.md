@@ -16,7 +16,7 @@ Focusing on the project itself I collected some links as I researched and chatte
 
 #### ***Day 2 - 12/24/2025***
 
-No entries for today
+No entries for today.
 
 #### ***Day 3 - 12/25/2025***
 
