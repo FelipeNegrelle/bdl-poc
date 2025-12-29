@@ -48,3 +48,8 @@ No entries for today.
 
 No entries for today.
 
+#### ***Day 6 - 12/28/2025***
+
+Today I started my journey through learning what I need to build my rust integration with mempool.space API. So, at first glance I went to chat with Claude AI to see if I could just get the pieces of knowledge necessary to build my application but my experience was terrible and it only confused me more than helped me understand the concepts of rust programming. 
+
+After this I went old-school mode and started reading the rust docs from their website from the beggining and read and tested interactively with Cargo, TOML files and very basic rust source codes to understand the language paradigm and how it works for real. I stopped on the second chapter, called: "*2. Programming a Guessing Game.*"
