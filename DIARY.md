@@ -39,3 +39,8 @@ For today I started exploring the endpoints to the client to integrate. I've fou
 Reading their docs I've discovered that the mempool.space API is public and don't need auth to work and that they have rate limiting and throthling, that if exploited several times you get banned from using their API. I've found that they have a paid plan for extended API usage and that it's quite expensive. I explored the docs and cherry-picked the endpoints that meet the requirements in the description of the PoC and structured this topics here to further reference and as a base for the implementation. Finally, I created the rust project with cargo and added basic dependencies for HTTP requests and Websocket connections.
 
 Merry Christmas!
+
+#### ***Day 4 - 12/26/2025***
+
+No entries for today.
+
