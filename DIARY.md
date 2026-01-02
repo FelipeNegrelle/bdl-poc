@@ -62,3 +62,8 @@ No entries for today.
 
 No entries for today.
 
+#### ***Day 9 - 12/31/2025***
+
+Following the rust learning journey and continued exploring the docs from the site, finished the guessing game section, and I think that learning like that: reading the docs and experimenting with the CLI and code works much better than with video crash courses or through AI LLMs, at least personally, cause I felt that I could actually comprehend stuff.
+
+Happy New Year!
