@@ -58,3 +58,7 @@ After this I went old-school mode and started reading the rust docs from their w
 
 No entries for today.
 
+#### ***Day 8 - 12/30/2025***
+
+No entries for today.
+
