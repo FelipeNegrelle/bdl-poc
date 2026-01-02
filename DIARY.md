@@ -67,3 +67,7 @@ No entries for today.
 Following the rust learning journey and continued exploring the docs from the site, finished the guessing game section, and I think that learning like that: reading the docs and experimenting with the CLI and code works much better than with video crash courses or through AI LLMs, at least personally, cause I felt that I could actually comprehend stuff.
 
 Happy New Year!
+
+#### ***Day 10 - 01/01/2026***
+
+For the first of the year I studied the basics of variables and its mutability in rust, from the rust docs. What I found interesting was the redeclaration of variables that works a little bit different to what I was used to, with it being able to redeclarate with another types and reuse that in different ways.
