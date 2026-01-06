@@ -82,3 +82,7 @@ After that I returned to the rust language studies, going from topic 3 to 5 and 
 
 Today still in my rust studies I've read through structs, and how to organize personalized data in a very OOP way with structs and it's methods, and also associated functions. This was very important to learn, because this topic will be specially useful to build the request and response models for the API endpoints implementations.
 
+#### ***Day 13 - 01/04/2026***
+
+No entries for today.
+
