@@ -71,3 +71,10 @@ Happy New Year!
 #### ***Day 10 - 01/01/2026***
 
 For the first of the year I studied the basics of variables and its mutability in rust, from the rust docs. What I found interesting was the redeclaration of variables that works a little bit different to what I was used to, with it being able to redeclarate with another types and reuse that in different ways.
+
+#### ***Day 11 - 01/02/2026***
+
+Today was a big day. Firstly, to confirm the details and doubts I had about the PoC I talked with leonardolima on discord, who oriented me on improving the making of my project and confirmed the idea of building a lib to integrate with mempool space in rust which could be integrated with BDK.
+
+After that I returned to the rust language studies, going from topic 3 to 5 and learned a lot. I understood about the difference about arrays and tuples, the special *unit* type and how to specify types in rust. I learnt about functions, the conceptual differences about parameters and arguments, also statements and expressions. After that, I explored loops, and the very curious feature of labeled loops. Then, came the most important concept of this day which was ownership, a very interesting matter to free ourselves from manually managing memory and potentially commiting mistakes. Rust makes all this easier with ownership, borrowing and references that haves it's own mutability. There's also the difference of types of where they allocate in memory and how they interact with the code lifecycle itself.
+
