@@ -78,3 +78,7 @@ Today was a big day. Firstly, to confirm the details and doubts I had about the 
 
 After that I returned to the rust language studies, going from topic 3 to 5 and learned a lot. I understood about the difference about arrays and tuples, the special *unit* type and how to specify types in rust. I learnt about functions, the conceptual differences about parameters and arguments, also statements and expressions. After that, I explored loops, and the very curious feature of labeled loops. Then, came the most important concept of this day which was ownership, a very interesting matter to free ourselves from manually managing memory and potentially commiting mistakes. Rust makes all this easier with ownership, borrowing and references that haves it's own mutability. There's also the difference of types of where they allocate in memory and how they interact with the code lifecycle itself.
 
+#### ***Day 12 - 01/03/2026***
+
+Today still in my rust studies I've read through structs, and how to organize personalized data in a very OOP way with structs and it's methods, and also associated functions. This was very important to learn, because this topic will be specially useful to build the request and response models for the API endpoints implementations.
+
