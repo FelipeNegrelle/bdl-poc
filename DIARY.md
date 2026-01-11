@@ -97,3 +97,7 @@ Today I studied about the project directories and file organization in rust, lea
 #### ***Day 16 - 01/07/2026***
 
 No entries for today.
+
+#### ***Day 17 - 01/08/2026***
+
+No entries for today.
