@@ -101,3 +101,7 @@ No entries for today.
 #### ***Day 17 - 01/08/2026***
 
 No entries for today.
+
+#### ***Day 18 - 01/09/2026***
+
+Today I joined leonardolima office hours and he helped to organize better my plan of action, because I was stuck in what exactely to do in the project, what to prioritize and how could i build stuff in rust, since it is a language i don't have much experience. He suggested to just put everything in a file to start off, and fix this later and to prioritize the streaming client that connects to the websocket of mempool.space. So, this is what I am going to do!
