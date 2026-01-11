@@ -105,3 +105,7 @@ No entries for today.
 #### ***Day 18 - 01/09/2026***
 
 Today I joined leonardolima office hours and he helped to organize better my plan of action, because I was stuck in what exactely to do in the project, what to prioritize and how could i build stuff in rust, since it is a language i don't have much experience. He suggested to just put everything in a file to start off, and fix this later and to prioritize the streaming client that connects to the websocket of mempool.space. So, this is what I am going to do!
+
+#### ***Day 19 - 01/10/2026***
+
+Today I started experimenting with the rust project, and understanding how exactely I'm going to do stuff, i chose the *tokio* and *tokio-tungstenite* libraries to communicate with the API and the *serde* library to serialize/deserialize the responses from the JSON, I will also use the *backoff* library to manage automatic reconnection with the API. With the dependencies chosen, I tried to understand how should I use them. The docs for the libraries are really confusing and I tried finding related material to use as reference, and chatted with ChatGPT about the possible structure, methods and logic of the project. I made some tests in the repo to understand how the API works.
