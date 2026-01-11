@@ -86,3 +86,6 @@ Today still in my rust studies I've read through structs, and how to organize pe
 
 No entries for today.
 
+#### ***Day 14 - 01/05/2026***
+
+Today I explored the enum section of the docs, focusing in understanding how to create personalized types that don't need a struct, but represent fixed values and also how to use the *match* operator to make kind of a *switch-case* statement to filter values in this control flow structure.
