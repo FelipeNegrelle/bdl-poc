@@ -93,3 +93,7 @@ Today I explored the enum section of the docs, focusing in understanding how to 
 #### ***Day 15 - 01/06/2026***
 
 Today I studied about the project directories and file organization in rust, learning about crates, that can be binary or libs, modules, submodules, the paths, the *use* and *mod* keywords, how the visibility of modules works and how to import stuff properly in rust code. This is a solid base to how to build my project better.
+
+#### ***Day 16 - 01/07/2026***
+
+No entries for today.
