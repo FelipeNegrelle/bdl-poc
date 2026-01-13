@@ -109,3 +109,15 @@ Today I joined leonardolima office hours and he helped to organize better my pla
 #### ***Day 19 - 01/10/2026***
 
 Today I started experimenting with the rust project, and understanding how exactely I'm going to do stuff, i chose the *tokio* and *tokio-tungstenite* libraries to communicate with the API and the *serde* library to serialize/deserialize the responses from the JSON, I will also use the *backoff* library to manage automatic reconnection with the API. With the dependencies chosen, I tried to understand how should I use them. The docs for the libraries are really confusing and I tried finding related material to use as reference, and chatted with ChatGPT about the possible structure, methods and logic of the project. I made some tests in the repo to understand how the API works.
+
+#### ***Day 20 - 01/11/2026***
+
+Today I tried started coding for real, and it was a mess, I had no idea what idea I was doing and got really confused about how to structure a rust project, and when I started putting everything inside a unique file, I just didn't know how to write the code at all. So, I searched through the documentation of *tokio*, *tungstenite* and websocket to understand how to use them in rust. With that I started coding a prototype, that run and connected to the websocket.org socket and I could echo stuff from my terminal. This helped me understand how to deal with websockets and contexts in rust. After that I used Claude to help me define a structure for the project and I came to the conclusion with it to mount:
+
+- A public module that exposes the client methods to use the library
+- Structs that will represent the JSON objects exchanged with the socket
+- A socket manager that will create the instances and run it in background
+- A MPSC implementation to separate reading and writing data and redirect it correctely
+- A backoff implementation that will listen to socket disconnections or timeouts and try to reconnect with exponential time gap increase
+
+With this pieces mounted in the project the streaming client part of the task will be ready.
