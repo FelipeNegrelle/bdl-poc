@@ -121,3 +121,9 @@ Today I tried started coding for real, and it was a mess, I had no idea what ide
 - A backoff implementation that will listen to socket disconnections or timeouts and try to reconnect with exponential time gap increase
 
 With this pieces mounted in the project the streaming client part of the task will be ready.
+
+#### ***Day 21 - 01/12/2026***
+
+Today, I started implementing stuff, and to start off with the most simple task, I created the structs for the track-txs event of the socket. Then, I proceeded to experiment with socket management and coupling with the tokio library along with the response type management, reading it from the socket response from mempool. I was able to build a simple client that connects to mempool.space's socket and send the *track-txs* event to it passing the txid's in the JSON body of the request, that is automatically serialized, thanks to the serde_json library. With it connected, the mempool.space API pings the library with updates of this transactions, which I print to the terminal.
+
+The next step now is to wrap this communication around a MPSC logic to control the instances of reading and writing separately, to be able to manage backoff and I/O more easily. Further from that, with the client wrapped, it's easier to expose things safer to the user to communicate with the API programatically, without worrying about business logic and network handling.
