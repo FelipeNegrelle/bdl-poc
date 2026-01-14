@@ -1,11 +1,10 @@
 use serde::{Deserialize, Serialize};
+use serde_json::Result;
 use std::collections::HashMap;
 use tokio::signal;
 
 #[tokio::main]
-async fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
-    use api;
-
+async fn main() -> Result<()> {
     let json_req = r#"
     {
       "track-txs": [
@@ -17,84 +16,69 @@ async fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
 
     let req: TxRequest = serde_json::from_str(json_req)?;
 
-    tokio::select! {
-        _ = api::track_transactions(req) => {
-            println!("Tracking task completed.");
+    let handle = tokio::spawn(async move {
+        if let Err(e) = api::run_websocket(req).await {
+            eprintln!("WebSocket error: {:?}", e);
         }
-        _ = signal::ctrl_c() => {
-            println!("Received shutdown signal. Exiting...");
-        }
-    }
+    });
+
+    signal::ctrl_c()
+        .await
+        .expect("Failed to listen for shutdown signal");
+    println!("Shutting down...");
+
+    handle.abort();
 
     Ok(())
 }
 
 pub mod api {
-    use crate::TxRequest;
+    use crate::{TxRequest, TxResponse};
     use futures_util::{SinkExt, StreamExt};
     use tokio_tungstenite::connect_async;
     use tokio_tungstenite::tungstenite::{Message, Utf8Bytes};
 
     pub const ADDRESS: &str = "wss://mempool.space/api/v1/ws";
 
-    pub async fn track_transactions(tx_request: TxRequest) {
-        let (mut ws_stream, _) = match connect_async(ADDRESS).await {
-            Ok(stream) => stream,
-            Err(e) => {
-                eprintln!("Failed to connect: {:?}", e);
-                return;
-            }
-        };
+    pub async fn run_websocket(
+        tx_request: TxRequest,
+    ) -> Result<(), tokio_tungstenite::tungstenite::Error> {
+        let (mut ws_stream, _) = connect_async(ADDRESS).await.expect("Failed to connect");
 
-        let message = match serde_json::to_string(&tx_request) {
-            Ok(msg) => Message::Text(Utf8Bytes::from(msg)),
-            Err(e) => {
-                eprintln!("Failed to serialize request: {:?}", e);
-                return;
-            }
-        };
-
-        if let Err(e) = ws_stream.send(message).await {
-            eprintln!("Failed to send message: {:?}", e);
-            return;
-        }
-
-        println!("Connected and sent tracking request. Listening for updates...");
+        ws_stream
+            .send(Message::Text(Utf8Bytes::from(
+                serde_json::to_string(&tx_request).unwrap(),
+            )))
+            .await
+            .expect("Failed to send message");
 
         while let Some(message) = ws_stream.next().await {
             match message {
-                Ok(Message::Text(text)) => match serde_json::from_str::<crate::TxResponse>(&text) {
+                Ok(Message::Text(text)) => match serde_json::from_str::<TxResponse>(&text) {
                     Ok(response) => {
-                        println!("Received transaction update: {:?}", response);
+                        println!("Received update: {:?}", response);
                     }
                     Err(_) => {
                         println!("Received non-JSON message: {}", text);
                     }
                 },
-                Ok(Message::Close(frame)) => {
-                    println!("Connection closed by server: {:?}", frame);
+
+                Ok(Message::Close(_)) => {
+                    println!("Connection closed by server");
                     break;
                 }
+
                 Ok(Message::Ping(payload)) => {
-                    if let Err(e) = ws_stream.send(Message::Pong(payload)).await {
-                        eprintln!("Failed to send pong: {:?}", e);
-                    }
+                    ws_stream.send(Message::Pong(payload)).await.ok();
                 }
-                Ok(Message::Pong(_)) => {}
-                Ok(Message::Binary(data)) => {
-                    println!("Received binary data: {:?}", data);
-                }
-                Ok(_) => {
-                    println!("Received unhandled message type");
-                }
-                Err(e) => {
-                    eprintln!("Error receiving message: {:?}", e);
-                    break;
+
+                _ => {
+                    eprintln!("Unexpected message type");
                 }
             }
         }
 
-        println!("WebSocket connection ended.");
+        Ok(())
     }
 }
 
